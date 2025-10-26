@@ -32,7 +32,7 @@ void add_goat(set<Goat> &trip, string names[], string colors[]) {
     string color = colors[rand() % SZ_COLORS];
 
     Goat new_goat(name, age, color);
-    trip.insert(new_goat);
+    trip.insert(new_goat); //doest use pushback since its a set now
 
     cout << "Added Goat: " << new_goat.get_name() << endl;
 }
