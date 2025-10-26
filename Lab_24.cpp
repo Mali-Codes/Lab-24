@@ -1,3 +1,6 @@
+// Lab_24 - COMSC-210
+// Malakai Ponce
+
 #include <iostream>
 #include <fstream>
 #include <iomanip>
