@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <list>
+#include <set>
 #include "Goat.h"
 using namespace std;
 
@@ -9,14 +9,14 @@ const int SZ_NAMES = 200,
 SZ_COLORS = 25, 
 MAX_AGE = 20;
 
-int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat> trip);
+int select_goat(set<Goat> trip);
+void delete_goat(set<Goat> &trip);
+void add_goat(set<Goat> &trip, string [], string []);
+void display_trip(set<Goat> trip);
 
 // seeing if the do while is going to work 
 
-int select_goat(list<Goat> trip) {
+int select_goat(set<Goat> trip) {
     int choice;
     cout << "Pick a goat to delete: ";
     cin >> choice;
@@ -24,7 +24,7 @@ int select_goat(list<Goat> trip) {
     return choice;
 }
 
-void add_goat(list<Goat> &trip, string names[], string colors[]) {
+void add_goat(set<Goat> &trip, string names[], string colors[]) {
 
     string name = names[rand() % SZ_NAMES];
 
@@ -32,11 +32,11 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
     string color = colors[rand() % SZ_COLORS];
 
     Goat new_goat(name, age, color);
-    trip.push_back(new_goat);
+    trip.insert(new_goat);
 
     cout << "Added Goat: " << new_goat.get_name() << endl;
 }
-void delete_goat(list<Goat> &trip) {
+void delete_goat(set<Goat> &trip) {
     if (trip.empty()) {
         cout << "No goats in the trip to delete" << endl;
         return;
@@ -53,7 +53,7 @@ void delete_goat(list<Goat> &trip) {
 
 }
 
-void display_trip(list<Goat> trip) {
+void display_trip(set<Goat> trip) {
     if(trip.empty()) {
         cout << "No goats in the trip!" << endl;
         return;
@@ -124,7 +124,7 @@ int main() {
     fin1.close();
 
 
-    list<Goat> trip;
+    set<Goat> trip;
 
 // more efficient thatn a bunch of if else I learned also for loop was limited while isnt hence the switch
 // tutor helped with this
